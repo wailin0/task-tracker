@@ -14,7 +14,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
     console.log("[graphQLErrors]", graphQLErrors);
     graphQLErrors.forEach(({ extensions }) => {
         if (extensions.code === "invalid-jwt") {
-          storage.clearAuth();
+          storage.clearToken();
           alert("Session Expired, Please Login With Your Credentials Again");
           RootNavigation.navigate("Sign Out");
         }
